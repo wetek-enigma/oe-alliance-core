@@ -8,7 +8,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 DEPENDS_wetekplay = "libamcodec"
 
 PV = "1.3"
-PR = "r2"
+PR = "r3"
 
 SRC_URI = "file://showiframe.c"
 

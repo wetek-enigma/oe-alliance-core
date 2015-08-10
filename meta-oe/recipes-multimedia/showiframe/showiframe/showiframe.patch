@@ -1,5 +1,6 @@
---- a/showiframe.c	2015-05-20 21:37:47.000000000 +0200
-+++ b/showiframe.c	2015-06-28 01:26:30.000000000 +0200
+diff -Naur a/showiframe.c b/showiframe.c
+--- a/showiframe.c	2015-08-10 14:30:58.000000000 +0200
++++ b/showiframe.c	2015-08-10 14:23:08.000000000 +0200
 @@ -8,18 +8,41 @@
  #include <sys/stat.h>
  #include <unistd.h>
@@ -151,7 +152,7 @@
 +			if (ret != 0) 				
 +				goto error;		
 +		} while (vbuf.data_len > 0x100);   
-+		sleep(2);
++		usleep(200000);
  	}
 +error:
 +	codec_close(vpcodec);
