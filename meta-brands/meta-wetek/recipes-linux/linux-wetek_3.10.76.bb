@@ -25,7 +25,7 @@ SRC_URI = "http://github.com/wetek-enigma/linux-wetek/archive/master.tar.gz \
     file://fix-blocking-demux.patch \
 "
 
-S = "${WORKDIR}/linux-wetek-${WETEK_TAG}"
+S = "${WORKDIR}/linux-wetek-master"
 B = "${WORKDIR}/build"
 
 
