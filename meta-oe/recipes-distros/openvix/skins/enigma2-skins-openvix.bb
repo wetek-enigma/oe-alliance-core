@@ -12,7 +12,7 @@ PACKAGE_ARCH := "${MACHINE_ARCH}"
 SRCREV = "${AUTOREV}"
 PV = "2.1+git${SRCPV}"
 PKGV = "2.1+git${GITPKGV}"
-PR = "r1"
+PR = "r2"
 
 SRC_URI = "git://github.com/OpenViX/skins.git;protocol=git"
 
@@ -113,6 +113,7 @@ DESCRIPTION_enigma2-plugin-skins-openvix-pli-full-hd-night = "720 skin for OpenV
 DESCRIPTION_enigma2-plugin-skins-openvix-metrixhd = "720 skin for OpenViX"
 DESCRIPTION_enigma2-plugin-skins-openvix-blue-hd = "720 skin for OpenViX"
 DESCRIPTION_enigma2-plugin-skins-openvix-red-hd = "720 skin for OpenViX"
+DESCRIPTION_enigma2-plugin-skins-openvix-magic-fhd = "1080 skin for OpenViX"
 DESCRIPTION_enigma2-plugin-skins-openvix-youvix-blue = "1080 skin for OpenViX"
 DESCRIPTION_enigma2-plugin-skins-openvix-youvix-green = "1080 skin for OpenViX"
 DESCRIPTION_enigma2-plugin-skins-openvix-youvix-purple = "1080 skin for OpenViX"
