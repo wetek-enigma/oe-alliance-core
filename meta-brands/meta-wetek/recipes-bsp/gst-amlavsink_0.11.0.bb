@@ -6,13 +6,15 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PR = "r0"
+PR = "r1"
 
 inherit autotools pkgconfig
 
 DEPENDS = "gstreamer libamcodec libamavutils"
 
-SRC_URI = "file://gst-aml-plugins-0.11.0.zip"
+SRC_URI = "file://gst-aml-plugins-0.11.0.zip \
+           file://osd_fix.patch \
+"
 
 S = "${WORKDIR}/gst-aml-plugins-0.11.0"
 
