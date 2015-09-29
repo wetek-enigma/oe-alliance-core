@@ -3,7 +3,7 @@ LICENSE = "GPLv2"
 SECTION = "base"
 PRIORITY = "required"
 
-PR = "r3"
+PR = "r4"
 
 require conf/license/license-gplv2.inc
 
@@ -13,6 +13,8 @@ SRC_URI = "git://github.com/wetek-enigma/amremote.git \
            file://wetek.conf \
            file://wetek1.conf \
            file://wetek2.conf \
+           file://wetek_et10000remote.conf \
+           file://wetek_hd2400remote.conf \
 "
 
 S = "${WORKDIR}/git"
@@ -30,6 +32,8 @@ do_install() {
     install -m 0644 ${WORKDIR}/wetek.conf ${D}${sysconfdir}/amremote/
     install -m 0644 ${WORKDIR}/wetek1.conf ${D}${sysconfdir}/amremote/
     install -m 0644 ${WORKDIR}/wetek2.conf ${D}${sysconfdir}/amremote/
+    install -m 0644 ${WORKDIR}/wetek_et10000remote.conf ${D}${sysconfdir}/amremote/
+    install -m 0644 ${WORKDIR}/wetek_hd2400remote.conf ${D}${sysconfdir}/amremote/
 }
 
 FILES_${PN} = "${bindir} ${sysconfdir}"
