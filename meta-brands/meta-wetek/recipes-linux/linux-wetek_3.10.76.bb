@@ -4,8 +4,8 @@ LICENSE = "GPLv2"
 
 LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI[md5sum] = "700b1ce118964951ba167e6bfb5b4186"
-SRC_URI[sha256sum] = "2a7e3f6891e82fd66ac0f98138cac7e54098ca4f48ac8ee843647b978dfe090a"
+SRC_URI[md5sum] = "279b893c95f209ff47aa275fe85285ea"
+SRC_URI[sha256sum] = "e91a92f32e2a5e3e34d6d10bf9a218d3407313db1c96991c5f2db73daa4860a1"
 
 inherit kernel machine_kernel_pr
 
