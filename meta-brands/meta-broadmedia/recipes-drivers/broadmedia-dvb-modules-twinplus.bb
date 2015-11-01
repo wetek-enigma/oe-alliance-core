@@ -1,5 +1,5 @@
 KV = "3.17.8"
-SRCDATE = "20151008"
+SRCDATE = "20151028"
 
 require broadmedia-dvb-modules.inc
 SRC_URI[md5sum] = "4bbdb5cede422421b426ddcf2edd41a3"
