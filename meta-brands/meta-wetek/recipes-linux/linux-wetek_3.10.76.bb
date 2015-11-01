@@ -9,6 +9,7 @@ SRC_URI[sha256sum] = "e91a92f32e2a5e3e34d6d10bf9a218d3407313db1c96991c5f2db73daa
 
 inherit kernel machine_kernel_pr
 
+MACHINE_KERNEL_PR_append = ".1"
 DEPENDS = "xz-native bc-native u-boot-mkimage-native gcc"
 
 # Avoid issues with Amlogic kernel binary components
@@ -58,4 +59,7 @@ do_install_append () {
     touch ${STAGING_KERNEL_DIR}/include/linux/smp_lock.h
     # remove *.z from installation path those are object files from amlogic for binary modules
     find ${D}/usr/src/kernel -type f -name "*.z" | xargs rm -f
+}
+
+do_rm_work() {
 }
