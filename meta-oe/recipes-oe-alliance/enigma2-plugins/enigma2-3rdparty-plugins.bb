@@ -9,11 +9,11 @@ inherit gitpkgv deploy
 DEPENDS = "tslib mpfr gmp"
 
 SRCREV = "${AUTOREV}"
-PV = "2.1+gitr${SRCPV}"
-PKGV = "2.1+gitr${GITPKGV}"
-PR = "r229"
+PV = "3.2+gitr${SRCPV}"
+PKGV = "3.2+gitr${GITPKGV}"
+PR = "r4"
 
-SRC_URI="git://github.com/oe-alliance/3rdparty-plugins.git;protocol=git"
+SRC_URI="git://github.com/oe-alliance/3rdparty-plugins2.git;protocol=git"
 
 EXTRA_OECONF = " \
     BUILD_SYS=${BUILD_SYS} \
@@ -30,7 +30,7 @@ S = "${WORKDIR}/git"
 THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-sundtekcontrolcenter-20150912-1.ipk \
     enigma2-plugin-extensions-atmolightd_0.7-pre22_all.ipk \
-    enigma2-plugin-extensions-autobouquets-e2_20151007_all.ipk \
+    enigma2-plugin-extensions-autobouquets-e2_20151101_all.ipk \
     enigma2-plugin-extensions-bildonline_3.1rc6_mips32el.ipk \
     enigma2-plugin-extensions-bluray_1.5c3_mips32el.ipk \
     enigma2-plugin-extensions-boblight-enigma2_0.8r7_mips32el.ipk \
@@ -56,8 +56,8 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-kino_1.6rc3_mips32el.ipk \
     enigma2-plugin-extensions-kodidirect_3.0_r0_all.ipk \
     enigma2-plugin-extensions-livefootball-oe2.0_5.4_all.ipk \
-    enigma2-plugin-extensions-mediainfo_2.7_all.ipk \
-    ${@base_contains("GST_VERSION", "1.0", 'enigma2-plugin-extensions-mediaportal-gst1_7.2.6_all.ipk' , 'enigma2-plugin-extensions-mediaportal_7.2.6_all.ipk', d)} \
+    enigma2-plugin-extensions-mediainfo_2.7r1_all.ipk \
+    ${@base_contains("GST_VERSION", "1.0", 'enigma2-plugin-extensions-mediaportal-gst1_7.3.0_all.ipk' , 'enigma2-plugin-extensions-mediaportal_7.3.0_all.ipk', d)} \
     enigma2-plugin-extensions-mediaportal-wallicons \
     enigma2-plugin-extensions-mediastream_6.0_all.ipk \
     enigma2-plugin-extensions-moviebrowser_3.6rc3_mips32el.ipk \
@@ -84,7 +84,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-thetvdb_0.7-20120607-r1_mips32el.ipk \
     enigma2-plugin-extensions-translator_1.0_mips32el.ipk \
     enigma2-plugin-extensions-transmission_2.83_mips32el.ipk \
-    enigma2-plugin-extensions-tsmedia_10.6_all.ipk \
+    enigma2-plugin-extensions-tsmedia_11.0_all.ipk \
     enigma2-plugin-extensions-tstube_1.2_all.ipk \
     enigma2-plugin-extensions-tvspielfilm_6.4rc4_mips32el.ipk \
     enigma2-plugin-extensions-verkehrsinfo_1.1rc1_mips32el.ipk \
