@@ -17,7 +17,7 @@ DEPENDS = " \
     ${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
     "
 
-DEPENDS_append_wetekplay = " libdvbcsa libamcodec"
+DEPENDS_append_wetekplay = " libdvbcsa libamcodec libamadec"
 
 RDEPENDS_${PN} = " \
     alsa-conf \
