@@ -1,17 +1,17 @@
 SUMMARY = "Linux kernel for ${MACHINE}"
 SECTION = "kernel"
 LICENSE = "GPLv2"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit kernel machine_kernel_pr
 
-KERNEL_RELEASE = "3.14.2"
+KERNEL_RELEASE = "3.18.24"
+SRCDATE = "20151109"
 
-SRC_URI[md5sum] = "3a36a72a0833fc1a0ff35c5c48cb3e8f"
-SRC_URI[sha256sum] = "03b8d8f5066929d28b8210bfb422ac0d679bdb2c9cb625d51f65f646da8ecd34"
+SRC_URI[md5sum] = "b7b64609db25ae28e85dd0549ee697a4"
+SRC_URI[sha256sum] = "ef2dbd871ae67ca9dafeedd21668338b9bc929258f67867bef8efdf9b0ee5b15"
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${PV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
-
-MACHINE_KERNEL_PR_append = ".1"
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
 # to be installed in parallel. We revert this change and rprovide the versioned
@@ -21,25 +21,15 @@ PKG_kernel-image = "kernel-image"
 RPROVIDES_kernel-base = "kernel-${KERNEL_VERSION}"
 RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION}"
 
-SRC_URI += "http://archiv.openmips.com/gigablue-linux-${PV}-20141019.tgz \
+SRC_URI += "http://source.mynonpublic.com/protek/protek-linux-${PV}-${SRCDATE}.tar.gz \
     file://defconfig \
     file://add-dmx-source-timecode.patch \
-    file://add-rtl8192cu-wifi-devices.patch \
-    file://add-rt2x00-wifi-devices.patch \
     file://af9015-output-full-range-SNR.patch \
-    file://af9033-output-full-range-SNR.patch \
     file://cxd2820r-output-full-range-SNR.patch \
-    file://dvb_usb_disable_rc_polling.patch \
-    file://dvb-usb-dib0700-disable-sleep.patch \
     file://fix-proc-cputype.patch \
     file://iosched-slice_idle-1.patch \
-    file://it913x-switch-off-PID-filter-by-default.patch \
-    file://linux-bcm_ethernet.patch \
     file://mxl5007t-add-no_probe-and-no_reset-parameters.patch \
-    file://nfs-max-rwsize-8k.patch \
-    file://rt2800usb_fix_warn_tx_status_timeout_to_dbg.patch \
     file://tda18271-advertise-supported-delsys.patch \
-    file://vlan_depth.patch \
     "
 
 S = "${WORKDIR}/linux-${PV}"

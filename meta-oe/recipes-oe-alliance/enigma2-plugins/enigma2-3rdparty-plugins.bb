@@ -11,7 +11,7 @@ DEPENDS = "tslib mpfr gmp"
 SRCREV = "${AUTOREV}"
 PV = "3.2+gitr${SRCPV}"
 PKGV = "3.2+gitr${GITPKGV}"
-PR = "r11"
+PR = "r14"
 
 SRC_URI="git://github.com/oe-alliance/3rdparty-plugins.git;protocol=git"
 
@@ -35,11 +35,12 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-bluray_1.5c3_mips32el.ipk \
     enigma2-plugin-extensions-boblight-enigma2_0.8r7_mips32el.ipk \
     enigma2-plugin-extensions-camofs_9.19_all.ipk \
+    enigma2-plugin-systemplugins-channelselectionnavigator_0.8_mipsel.ipk \
     enigma2-plugin-extensions-chefkoch_1.4c4_mips32el.ipk \
     enigma2-plugin-extensions-clevertanken_0.6_mips32el.ipk \
     enigma2-plugin-extensions-csfd_10-10-20150103_all.ipk \
     enigma2-plugin-extensions-cyrussettings_1.0.0_all.ipk \
-    enigma2-plugin-extensions-digitalfernsehen_1.1rc6_mips32el.ipk \
+    enigma2-plugin-extensions-digitalfernsehen_1.1rc9_mips32el.ipk \
     enigma2-plugin-extensions-ehue_0.2-r0_all.ipk \
     enigma2-plugin-extensions-enigmalight_0.2-rc1_all.ipk \
     enigma2-plugin-extensions-facebook_1.4_mips32el.ipk \
@@ -53,7 +54,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-iptvplayer_90.02.00.00_all.ipk \
     enigma2-plugin-extensions-isettinge2-3.3.3-oe2.0-${@base_contains("TARGET_ARCH", "sh4", "sh4" , "mips32el", d)}.ipk \
     enigma2-plugin-extensions-kicker_3.3rc15_mips32el.ipk \
-    enigma2-plugin-extensions-kino_1.6rc5_mips32el.ipk \
+    enigma2-plugin-extensions-kino_1.6rc7_mips32el.ipk \
     enigma2-plugin-extensions-kodidirect_3.0_r0_all.ipk \
     enigma2-plugin-extensions-livefootball-oe2.0_5.4_all.ipk \
     enigma2-plugin-extensions-mediainfo_2.7r1_all.ipk \
@@ -69,8 +70,10 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-opkg-tools_1.3_mipsel.ipk \
     enigma2-plugin-extensions-oscamstatusview_0.7rc1_mips32el.ipk \
     enigma2-plugin-extensions-piconmanager_2.1-20150216-r2_all.ipk \
-    enigma2-plugin-extensions-picturecenterfs_6.10_all.ipk \
+    enigma2-plugin-extensions-piconsupdater_0.3.4_mips32el.ipk \
+    enigma2-plugin-extensions-picturecenterfs_6.25_all.ipk \
     enigma2-plugin-extensions-planerfs_6.59_all.ipk \
+    enigma2-plugin-extensions-pluginupdater_0.1r2_all.ipk \
     enigma2-plugin-extensions-pluginspanel_1.0_r01_all.ipk \
     enigma2-plugin-extensions-radioo_0.45c_all.ipk \
     enigma2-plugin-extensions-screengrabber_2.1a_mips32el.ipk \
@@ -173,6 +176,9 @@ THIRDPARTY_MACHINE_PLUGINS_inihde2 = " \
     "
 THIRDPARTY_MACHINE_PLUGINS_ultramini = " \
     enigma2-plugin-extensions-xpeedlx-hbbtv_1.2-r0-11+43da75f-r0_mips32el.ipk \
+    "
+THIRDPARTY_MACHINE_PLUGINS_9900lx = " \
+    enigma2-plugin-extensions-hbbtv_1.0-r0-15+c25d268-r0_9900lx.ipk \
     "
 
 do_install[noexec] = "1"
