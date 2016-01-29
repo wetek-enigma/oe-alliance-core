@@ -11,13 +11,13 @@ SRC_URI = "git://github.com/OpenPLi/tuxtxt.git;protocol=git \
            file://0001-Workaround-for-Gigablue-Quad-receivers.patch \
            file://0002-Use-separate-transparency-for-menu-and-teletext.patch"
 
-SRC_URI_append_wetekplay = " file://0001-WETEK-add-support-AIR-mouse-and-switch-to-FB2.patch"
+SRC_URI_append_wetekplay = " file://0001-add-HBGIC-for-wetek.patch"
 
 S = "${WORKDIR}/git/tuxtxt"
 
 PV = "2.0+git${SRCPV}"
 PKGV = "2.0+git${GITPKGV}"
-PR = "r12"
+PR = "r13"
 
 do_configure_prepend() {
     touch ${S}/NEWS
@@ -57,4 +57,5 @@ inherit autotools pkgconfig
 
 EXTRA_OECONF = "--with-boxtype=generic --with-configdir=/etc \
     ${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
+    ${@base_contains("MACHINE", "wetekplay", "--with-fbdev=/dev/fb/2" , "", d)} \
     "
