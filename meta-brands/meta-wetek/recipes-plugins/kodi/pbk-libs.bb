@@ -11,12 +11,12 @@ require conf/license/license-gplv2.inc
 
 inherit lib_package 
 
-PR = "r1"
+PR = "r2"
 
 
 INHIBIT_PACKAGE_STRIP = "1"
 
-SRC_URI="file://kodil.tgz"
+SRC_URI="file://kodi.tar.gz"
 
 S = "${WORKDIR}"
 
