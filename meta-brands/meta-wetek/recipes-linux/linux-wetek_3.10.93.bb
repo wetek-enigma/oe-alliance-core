@@ -21,17 +21,56 @@ LINUX_VERSION_EXTENSION ?= "amlogic"
 
 COMPATIBLE_MACHINE = "(wetekplay)"
 
+# WARNING reverted to version 93 in the 94 patch to make modules work
+#SRC_URI = "file://master.tar.gz 
 SRC_URI = "http://github.com/wetek-enigma/linux-wetek-3.10.y/archive/master.tar.gz \
     file://defconfig \
+    file://tsync_pcr.c \
+    file://aml_pmu4_codec.c \
+    file://video.c \
+    file://vpp.c \
+    file://ftrace.h \
+    file://return_address.c \
+    file://hdmi_tx_cec.h \
+    file://hdmi_tx_cec.c \
+    file://MakefileArchArm \
 "
+#    file://patch-3.10.93-94.patch
+
 
 S = "${WORKDIR}/linux-wetek-3.10.y-master"
 B = "${WORKDIR}/build"
 
-
 do_configure_prepend () {
     cd ${STAGING_KERNEL_DIR}
-    find -type f -name "*.z" -print0 | xargs -0 cp -f --parents -t ${B}
+   find -type f -name "*.z" -print0 | xargs -0 cp -f --parents -t ${B}
+
+# try with original dB values
+    cp -f ${WORKDIR}/aml_pmu4_codec.c ${WORKDIR}/linux-wetek-3.10.y-master/sound/soc/codecs/
+# Already in new kernel
+#    cp -f ${WORKDIR}/vmpeg12_mc.c ${WORKDIR}/linux-wetek-3.10.y-master/drivers/amlogic/amports/m6/ucode/mpeg12/
+#    cp -f ${WORKDIR}/ptsserv.c ${WORKDIR}/linux-wetek-3.10.y-master/drivers/amlogic/amports/
+#    cp -f ${WORKDIR}/vh264.c ${WORKDIR}/linux-wetek-3.10.y-master/drivers/amlogic/amports/
+
+# video.c same except:
+#EXPORT_SYMBOL(video_property_changed); EXPORT_SYMBOL(amvideo_get_scaler_para);EXPORT_SYMBOL(amvideo_set_scaler_para);
+#EXPORT_SYMBOL(amvideo_get_scaler_mode);
+    cp -f ${WORKDIR}/video.c ${WORKDIR}/linux-wetek-3.10.y-master/drivers/amlogic/amports/
+
+# video.c same except:
+#EXPORT_SYMBOL(vpp_set_video_source_crop);EXPORT_SYMBOL(vpp_get_video_source_crop);
+#EXPORT_SYMBOL(vpp_set_video_layer_position);EXPORT_SYMBOL(vpp_get_video_layer_position);
+#EXPORT_SYMBOL(vpp_set_global_offset);EXPORT_SYMBOL(vpp_get_global_offset);
+    cp -f ${WORKDIR}/vpp.c ${WORKDIR}/linux-wetek-3.10.y-master/drivers/amlogic/amports/
+
+# tsync_pcr.c our is very different!
+#    cp -f ${WORKDIR}/tsync_pcr.c ${WORKDIR}/linux-wetek-3.10.y-master/drivers/amlogic/amports/
+
+# gcc 5.3 fix
+    cp -f ${WORKDIR}/ftrace.h ${WORKDIR}/linux-wetek-3.10.y-master/arch/arm/include/asm/
+    cp -f ${WORKDIR}/return_address.c ${WORKDIR}/linux-wetek-3.10.y-master/arch/arm/kernel/
+
+
 }
 
 do_compile_prepend () {
