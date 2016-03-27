@@ -13,7 +13,6 @@ DEPENDS = " \
     python python-imaging python-twisted python-wifi \
     swig-native \
     tuxtxt-enigma2 \
-    ${@base_contains("TARGET_ARCH", "sh4", "libmmeimage " , "", d)} \
     ${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
     "
 
@@ -211,7 +210,7 @@ inherit autotools-brokensep gitpkgv pkgconfig pythonnative
 
 PV = "5.2+git${SRCPV}"
 PKGV = "5.2+git${GITPKGV}"
-PR = "r0"
+PR = "r1"
 
 SRC_URI = "${ENIGMA2_URI}"
 
@@ -238,6 +237,15 @@ SRC_URI_append_vuduo = " \
     file://duo_VFD.patch \
     "
 SRC_URI_append_openatv = " \
+    file://tuxbox_fix_DVB_API_VERSION_check_for_gcc5.patch \
+    "
+SRC_URI_append_openhdf = " \
+    file://tuxbox_fix_DVB_API_VERSION_check_for_gcc5.patch \
+    "
+SRC_URI_append_opennfr = " \
+    file://tuxbox_fix_DVB_API_VERSION_check_for_gcc5.patch \
+    "
+SRC_URI_append_opendroid = " \
     file://tuxbox_fix_DVB_API_VERSION_check_for_gcc5.patch \
     "
 
@@ -275,7 +283,6 @@ EXTRA_OECONF = " \
     ${@base_contains("MACHINE_FEATURES", "fullgraphiclcd", "--with-fullgraphiclcd" , "", d)} \
     ${@base_contains("MACHINE_FEATURES", "gigabluelcd", "--with-gigabluelcd" , "", d)} \
     ${@base_contains("MACHINE_FEATURES", "nolcd", "--with-nolcd" , "", d)} \
-    ${@base_contains("TARGET_ARCH", "sh4", "--enable-sh=yes " , "", d)} \
     ${@base_contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
     ${@base_contains("MACHINE_FEATURES", "osdanimation", "--with-osdanimation" , "", d)} \
     "

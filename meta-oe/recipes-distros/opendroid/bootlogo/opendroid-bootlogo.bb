@@ -1,15 +1,15 @@
-SUMMARY = "opendroid bootlogo"
+SUMMARY = "openDroid bootlogo"
 SECTION = "base"
 PRIORITY = "required"
-MAINTAINER = "opendroid Team"
+MAINTAINER = "openDroid Team"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 require conf/license/license-gplv2.inc
 
 RDEPENDS_${PN} += "showiframe"
 
-PV = "5.3"
-PR = "r9"
+PV = "5.5"
+PR = "r12"
 
 S = "${WORKDIR}"
 

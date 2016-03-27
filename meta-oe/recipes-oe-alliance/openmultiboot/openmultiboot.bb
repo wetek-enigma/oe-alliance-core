@@ -12,7 +12,7 @@ PKGV = "1.0+git${GITPKGV}"
 PR = "r4"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "freetype ${@base_contains("BRAND_OEM", "fulan", "fulan-dvb-modules-${MACHINE}" , "", d)}"
+DEPENDS = "freetype"
 
 SRC_URI = "git://github.com/oe-alliance/openmultiboot.git;protocol=git"
 
@@ -28,6 +28,7 @@ EXTRA_OEMAKE = " \
     ${@base_contains("IMAGE_FSTYPES", "ubi", "-DOMB_FLASH_UBI" , "", d)} \
     ${@base_contains("IMAGE_FSTYPES", "jffs2", "-DOMB_FLASH_JFFS2" , "", d)} \
     ${@base_contains("MACHINE_FEATURES", "dreambox", "-DOMB_DREAMBOX", "", d)} \
+    ${@base_contains("MACHINE_FEATURES", "mmc", "-DOMB_MMCBLK", "", d)} \
     -DOMB_KERNEL_MTD=\"/dev/${MTD_KERNEL}\"' \
     'LDFLAGS= -lfreetype ${LDFLAGS}' \
     "
