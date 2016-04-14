@@ -4,10 +4,12 @@ LICENSE = "GPLv2"
 
 LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
+SRC_URI[md5sum] = "9712aee820b5a9a7cd1dc6f57fc58bb8"
+SRC_URI[sha256sum] = "2a6843b68142835e81f6e73f4b9e0c3bb1c11e59029a866ab5691c95c634e859"
 
 inherit kernel machine_kernel_pr
 
-PR = "r0"
+MACHINE_KERNEL_PR_append = ".1"
 DEPENDS = "xz-native bc-native u-boot-mkimage-native gcc"
 
 # Avoid issues with Amlogic kernel binary components
@@ -19,14 +21,11 @@ LINUX_VERSION_EXTENSION ?= "amlogic"
 
 COMPATIBLE_MACHINE = "(wetekplay)"
 
-SRCREV = "e36037929a5b637dc4a4643c2e12ad1b4e328f54"
-
-
-SRC_URI = "git://github.com/wetek-enigma/linux-wetek-3.10.y.git \
+SRC_URI = "http://github.com/wetek-enigma/linux-wetek-3.10.y/archive/master.tar.gz \
     file://defconfig \
 "
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/linux-wetek-3.10.y-master"
 B = "${WORKDIR}/build"
 
 
