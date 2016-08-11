@@ -7,7 +7,7 @@ ALLOW_EMPTY_${PN} = "1"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PV = "1.0"
-PR = "r01"
+PR = "r02"
 
 inherit packagegroup
 
@@ -21,7 +21,7 @@ RRECOMMENDS_${PN} = "\
     enigma2-skins \
     enigma2-pliplugins \
     enigma2-plugin-extensions-project-valerie \
-    enigma2-plugin-extensions-xmltvimport \
+    enigma2-plugin-extensions-epgimport \
     curlftpfs \
     enigma2-plugin-extensions-enhancedmoviecenter \
     enigma2-plugin-extensions-cooltvguide \
@@ -29,6 +29,9 @@ RRECOMMENDS_${PN} = "\
     enigma2-plugin-extensions-bmediacenter \
     enigma2-plugin-extensions-mainmenu2 \
     enigma2-plugin-skins-skallihd-fullhd \
+    enigma2-plugin-skins-iflat-blassermod \
+    enigma2-plugin-skins-fenris-blassermod \
+    enigma2-plugin-skins-prime-nfrstyle \
     enigma2-plugin-skins-smoke-light-hd \
     enigma2-plugin-extensions-vmc \
-"
+" 

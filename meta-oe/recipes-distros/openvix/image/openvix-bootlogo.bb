@@ -9,12 +9,16 @@ require conf/license/license-gplv2.inc
 RDEPENDS_${PN} += "showiframe"
 
 PV = "${IMAGE_VERSION}"
-PR = "r1"
+PR = "r4"
 
 S = "${WORKDIR}"
 
 INITSCRIPT_NAME = "bootlogo"
 INITSCRIPT_PARAMS = "start 06 S ."
+INITSCRIPT_PARAMS_vuduo2 = "start 70 S ."
+INITSCRIPT_PARAMS_vusolo2 = "start 70 S ."
+INITSCRIPT_PARAMS_vusolose = "start 70 S ."
+INITSCRIPT_PARAMS_vusolo4k = "start 70 S ."
 
 inherit update-rc.d
 
@@ -26,7 +30,7 @@ SRC_URI = "file://bootlogo.mvi file://backdrop.mvi file://radio.mvi file://bootl
 SRC_URI_append_vuduo2 = "file://lcdbootlogo.png file://bootlogo.py"
 SRC_URI_append_dags7335 = "file://tm-splash.bmp file://iqon-splash.bmp file://splash1.bmp file://splash2.bmp file://splash3.bmp"
 SRC_URI_append_dags7356 = "file://tm-splash.bmp file://iqon-splash.bmp file://splash1.bmp file://splash2.bmp file://splash3.bmp"
-SRC_URI_append_dags7362 = "file://tm-splash.bmp file://iqon-splash.bmp file://splash1.bmp file://splash2.bmp file://splash3.bmp"
+SRC_URI_append_dags7362 = "file://tm-splash.bmp file://iqon-splash.bmp file://splash1_power.bmp file://splash2.bmp file://splash3.bmp"
 
 FILES_${PN} = "/usr/share /usr/share/enigma2 /etc/init.d"
 
@@ -68,6 +72,9 @@ do_deploy() {
     fi
     if [ -e splash1.bmp ]; then
         install -m 0644 splash1.bmp ${DEPLOYDIR}/splash1.bmp
+    fi
+    if [ -e splash1_power.bmp ]; then
+        install -m 0644 splash1_power.bmp ${DEPLOYDIR}/splash1_power.bmp
     fi
     if [ -e splash2.bmp ]; then
         install -m 0644 splash2.bmp ${DEPLOYDIR}/splash2.bmp

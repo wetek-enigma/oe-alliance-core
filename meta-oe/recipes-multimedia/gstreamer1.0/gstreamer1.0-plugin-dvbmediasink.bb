@@ -21,19 +21,82 @@ SRC_URI_append_dags7356 = " \
     file://0001-update-dags-support.patch;patch=1 \ 
 "
 SRC_URI_append_dags7362 = " \
-    file://0001-update-dags-support.patch;patch=1 \ 
+    file://0001-update-dags-support.patch;patch=1 \
 "
 
 SRC_URI_append_dm7080 = " \
-    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \ 
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+    file://0001-dreambox-h265-streamtype-22.patch \
 "
 
 SRC_URI_append_dm820 = " \
-    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \ 
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+    file://0001-dreambox-h265-streamtype-22.patch \
+"
+
+SRC_URI_append_dm520 = " \
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+    file://0001-dreambox-h265-streamtype-22.patch \
 "
 
 SRC_URI_append_vusolo4k = " \
     file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+"
+
+SRC_URI_append_xc7362 = " \
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+"
+
+SRC_URI_append_gb73625 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_g100 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_ch625lc = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_hd11 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_hd1265 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_hd1500 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_h5 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_hd51 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_hd52 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_7005s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_7105s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_7215s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_7225s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
 "
 
 S = "${WORKDIR}/git"
@@ -42,7 +105,7 @@ inherit gitpkgv
 
 PV = "${GSTVERSION}+git${SRCPV}"
 PKGV = "${GSTVERSION}+git${GITPKGV}"
-PR = "r13"
+PR = "r14"
 
 do_configure_prepend() {
     sed -i 's/AC_INIT.*$/AC_INIT(gst-plugin-dvbmediasink, 1.0.0, @pli4)/' ${S}/configure.ac

@@ -6,21 +6,29 @@ BRAND_OEM = "broadmedia"
 MACHINE_NAME = "\
 ${@base_contains('MACHINEBUILD', 'mbtwinplus', 'Premium Twin Plus' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'sf3038', 'SF3038' , '', d)}\
+${@base_contains('MACHINEBUILD', 'sf128', 'SF128' , '', d)}\
+${@base_contains('MACHINEBUILD', 'sf138', 'SF138' , '', d)}\
 "
 
 MACHINE_BRAND = "\
 ${@base_contains('MACHINEBUILD', 'mbtwinplus', 'Miraclebox' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'sf3038', 'Octagon' , '', d)}\
+${@base_contains('MACHINEBUILD', 'sf128', 'Octagon' , '', d)}\
+${@base_contains('MACHINEBUILD', 'sf138', 'Octagon' , '', d)}\
 "
 
 IMAGEDIR ?= "\
 ${@base_contains('MACHINEBUILD', 'mbtwinplus', 'miraclebox/twinplus' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'sf3038', 'sf3038' , '', d)}\
+${@base_contains('MACHINEBUILD', 'sf128', 'sf128' , '', d)}\
+${@base_contains('MACHINEBUILD', 'sf138', 'sf138' , '', d)}\
 "
 
 MACHINE_DRIVER = "\
 ${@base_contains('MACHINEBUILD', 'mbtwinplus', 'twinplus' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'sf3038', 'sf3038' , '', d)}\
+${@base_contains('MACHINEBUILD', 'sf128', 'g100' , '', d)}\
+${@base_contains('MACHINEBUILD', 'sf138', 'g100' , '', d)}\
 "
 
 MTD_KERNEL = "mtd1"
@@ -45,7 +53,9 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 
 include conf/machine/include/autoload-filesystems.inc
 
-DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 \
+    ${@base_contains('MACHINE', 'g100', ' --with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
+"
 
 TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el"
@@ -83,11 +93,12 @@ IMAGE_CMD_ubi_append = "\
     rm -Rf ${IMAGEDIR}; \
     "
 
-MACHINE_FEATURES += "alsa 3dtv switchoff hdmicec bootsplash omb boxmodel feature1 feature2"
+MACHINE_FEATURES += "alsa 3dtv switchoff hdmicec bootsplash omb boxmodel feature1 feature2 blindscan-tbs"
 
 BOOTLOGO_FILENAME = "splash.bin"
 
 require conf/machine/include/tune-mips32.inc
+require conf/machine/include/soc-family.inc
 
 # add support for extra feeds
 PACKAGE_ARCHS += " ${MACHINEBUILD}"

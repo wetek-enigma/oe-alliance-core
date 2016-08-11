@@ -25,7 +25,10 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 
 include conf/machine/include/autoload-filesystems.inc
 
-DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 --with-max-pcmrate-48K"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 --with-max-pcmrate-48K \
+    ${@base_contains('MACHINE', 'et8500', '--with-vb6 --with-vb8 --with-spark' , '', d)} \
+    ${@base_contains('MACHINE', 'et7x00', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
+"
 
 TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el"
@@ -65,11 +68,12 @@ IMAGE_CMD_ubi_append = "\
     "
 
 
-MACHINE_FEATURES += "3dtv alsa blindscan-dvbs hdmicec switchoff bootsplash omb boxmodel feature1 feature2"
+MACHINE_FEATURES += "3dtv alsa blindscan-dvbs hdmicec switchoff bootsplash omb boxmodel feature1"
 
 BOOTLOGO_FILENAME = "splash.bin"
 
 require conf/machine/include/tune-mips32.inc
+require conf/machine/include/soc-family.inc
 
 EXTRA_IMAGEDEPENDS += " \
     enigma2-plugin-systemplugins-remotecontrolcode \

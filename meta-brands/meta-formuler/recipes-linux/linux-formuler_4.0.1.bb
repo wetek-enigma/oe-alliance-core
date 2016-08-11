@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "6fd63aedd69b3b3b28554cabf71a9efcf05f10758db3d5b99cfb0580e3
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${PV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-MACHINE_KERNEL_PR_append = ".1"
+MACHINE_KERNEL_PR_append = ".2"
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
 # to be installed in parallel. We revert this change and rprovide the versioned
@@ -21,13 +21,19 @@ PKG_kernel-image = "kernel-image"
 RPROVIDES_kernel-base = "kernel-${KERNEL_VERSION}"
 RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION}"
 
-SRC_URI += "http://downloads.mutant-digital.net/linux-${PV}.tar.gz \
+SRC_URI += "http://downloads.formuler.info/linux-${PV}.tar.gz \
 	file://defconfig \
 	file://formuler_partition_layout.patch \
 	file://add-dmx-source-timecode.patch \
 	file://iosched-slice_idle-1.patch \
 	file://sdio-pinmux.patch \
 	file://0001-bcmgenet.patch \
+	file://0001-Support-TBS-USB-drivers-for-4.0.1-kernel.patch \
+	file://0001-TBS-fixes-for-4.0.1-kernel.patch \
+	file://0001-STV-Add-PLS-support.patch \
+	file://0001-STV-Add-SNR-Signal-report-parameters.patch \
+	file://blindscan2.patch \
+	file://0001-stv090x-optimized-TS-sync-control.patch \
 	"
 
 S = "${WORKDIR}/linux-${PV}"

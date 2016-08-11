@@ -9,7 +9,7 @@ ALLOW_EMPTY_${PN} = "1"
 PACKAGES = "${PN}"
 
 PV = "5.2"
-PR = "r1"
+PR = "r7"
 
 DEPENDS = "enigma2-plugin-drivers-usbserial"
 RECOMMENDS = "enigma2-plugin-extensions-et-livestream"
@@ -34,7 +34,6 @@ RDEPENDS_${PN} = " \
     ${@base_contains("TARGET_ARCH", "mipsel", "enigma2-plugin-extensions-et-livestream" , "", d)} \
     enigma2-plugin-extensions-mediatomb \
     enigma2-plugin-extensions-dreamplex \
-    enigma2-plugin-extensions-iptvlistupdater \
     enigma2-plugin-extensions-et-portal \
     enigma2-plugin-extensions-moviearchiver \
     enigma2-plugin-extensions-yahooweather \
@@ -62,13 +61,14 @@ RDEPENDS_${PN} = " \
     ${@base_contains("MACHINE_FEATURES", "legacykernel", "" , "evtest strace", d)} \
     exfat-utils \
     fuse-exfat \
-    ${@base_contains("TARGET_ARCH", "sh4", "" , "gdb", d)} \
+    ${@base_contains("TARGET_ARCH", "sh4", "" , "gdb v4l-utils", d)} \
     hddtemp \
     hdparm \
     htop \
     inadyn-mt \
     iperf \
     joe \
+    llmnr-query \
     mc \
     minidlna \
     mpd \
@@ -103,6 +103,7 @@ RDEPENDS_${PN} = " \
     idle3-tools \
     pngquant \
     streamproxy \
+    pcsc-lite \
     ${@base_contains("GST_VERSION", "1.0", "eplayer5", "eplayer4", d)} \
     "
 

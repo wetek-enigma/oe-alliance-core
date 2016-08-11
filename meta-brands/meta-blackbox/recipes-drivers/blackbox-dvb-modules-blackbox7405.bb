@@ -1,10 +1,10 @@
 KV = "3.14.21"
-SRCDATE = "20160329"
+SRCDATE = "20160616"
 
 RDEPENDS_${PN} += "blackbox7405-mac-check"
 
-SRC_URI[md5sum] = "eeb3159647414a2f936b2ac0cf0d0dc9"
-SRC_URI[sha256sum] = "092f2d6fdfdadefca8bb09db6071d5c3d900002f5e6a938bf9b3a976a6ff2540"
+SRC_URI[md5sum] = "0b450b14e2d84edcd36ba9c1512bca88"
+SRC_URI[sha256sum] = "f2f26a9c448c08672ebc8fc06478edac73ebd29a42ed11110909617c73412025"
 
 SRC_URI = "http://source.mynonpublic.com/unibox/linuxdvb_7405-${KV}-${SRCDATE}.tar.gz"
 

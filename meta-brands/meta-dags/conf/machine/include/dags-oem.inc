@@ -201,26 +201,26 @@ ${@base_contains('MACHINEBUILD', 'purehd', 'mtd0' , '', d)}\
 SPLASH1_BMP = "\
 ${@base_contains('MACHINEBUILD', 'tmnano2super', 'splash1.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'tmnano3t', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'tmnanose', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'tmnanoseplus', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'tmnanosem2', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'tmnanosecombo', 'splash1.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'tmnanose', 'splash1_power.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'tmnanoseplus', 'splash1_power.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'tmnanosem2', 'splash1_power.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'tmnanosecombo', 'splash1_power.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'force1', 'splash1_os2.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'force1plus', 'splash1_os2.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'megaforce1plus', 'splash1_os2.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'worldvisionf1', 'splash1_os1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'force2', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'force2plus', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'force2se', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'megaforce2', 'splash1.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'force2', 'splash1_power.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'force2plus', 'splash1_power.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'force2se', 'splash1_power.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'megaforce2', 'splash1_power.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'worldvisionf1plus', 'splash1_os1.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'optimussos1plus', 'splash1_os1.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'optimussos2plus', 'splash1_os2.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'optimussos3plus', 'splash1_os2.bmp' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'optimussos', 'splash1_os1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'fusionhd', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'fusionhdse', 'splash1.bmp' , '', d)}\
-${@base_contains('MACHINEBUILD', 'purehd', 'splash1.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'fusionhd', 'splash1_power.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'fusionhdse', 'splash1_power.bmp' , '', d)}\
+${@base_contains('MACHINEBUILD', 'purehd', 'splash1_power.bmp' , '', d)}\
 "
 
 MACHINE_DRIVER = "\
@@ -333,14 +333,16 @@ IMAGE_CMD_ubi_append = "\
     "
 
 
-MACHINE_FEATURES += "3dtv alsa hdmicec switchoff bootsplash textlcd ci omb skins1080 wifiusbmodule feature1 feature2 \
+MACHINE_FEATURES += "3dtv alsa hdmicec switchoff bootsplash textlcd ci omb skins1080 wifiusbmodule feature1 feature2 blindscan-tbs \
     ${@base_contains('MACHINEBUILD', 'fusionhd', 'fastscan dvb-c' , '', d)} \
     ${@base_contains('MACHINEBUILD', 'fusionhdse', 'fastscan dvb-c' , '', d)} \
+    ${@base_contains('MACHINEBUILD', 'purehd', 'fastscan dvb-c' , '', d)} \
 "
 
 BOOTLOGO_FILENAME = "splash.bmp"
 
 require conf/machine/include/tune-mips32.inc
+require conf/machine/include/soc-family.inc
 
 # add support for extra feeds
 PACKAGE_ARCHS += " ${MACHINEBUILD}"
