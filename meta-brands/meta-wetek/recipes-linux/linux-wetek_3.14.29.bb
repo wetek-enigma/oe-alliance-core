@@ -1,0 +1,53 @@
+DESCRIPTION = "Amlogic Kernel"
+SECTION = "kernel"
+LICENSE = "GPLv2"
+
+LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
+
+inherit kernel machine_kernel_pr
+
+PR = "r0"
+
+DEPENDS = "xz-native bc-native u-boot-mkimage-native gcc"
+
+LINUX_VERSION ?= "3.14.29"
+LINUX_VERSION_EXTENSION ?= "amlogic"
+
+COMPATIBLE_MACHINE = "(wetekplay2)"
+
+
+SRCREV = "eb673246ab57752d59cd36d276c8354d1bf43be1"
+
+SRC_URI = "git://github.com/wetek-enigma/linux-amlogic.git;protocol=git;branch=amlogic-3.14.y \
+		   file://defconfig \
+		   file://boot.ini \
+		   "
+
+
+S = "${WORKDIR}/git"
+B = "${WORKDIR}/build"
+
+
+do_compile_prepend () {
+    if test -n "${KERNEL_DEVICETREE}"; then
+        for DTB in ${KERNEL_DEVICETREE}; do
+            if echo ${DTB} | grep -q '/dts/'; then
+                bbwarn "${DTB} contains the full path to the the dts file, but only the dtb name should be used."
+                DTB=`basename ${DTB} | sed 's,\.dts$,.dtb,g'`
+            fi
+            oe_runmake ${DTB}			
+        done
+    # Create directory, this is needed for out of tree builds
+    mkdir -p ${B}/arch/arm64/boot/dts/amlogic/
+    fi
+}
+do_compile_append() {
+	install -d ${DEPLOY_DIR_IMAGE}
+	install -m 0644 ${B}/arch/arm64/boot/dts/amlogic/${KERNEL_DEVICETREE} ${DEPLOY_DIR_IMAGE}/meson64_wetekplay2.dtb
+	install -m 0644 ${S}/boot.ini ${DEPLOY_DIR_IMAGE}/boot.ini
+}
+
+do_rm_work() {
+}
+do_package_qa() {
+}
