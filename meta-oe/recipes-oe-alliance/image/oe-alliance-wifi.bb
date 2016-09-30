@@ -10,7 +10,7 @@ ALLOW_EMPTY_${PN} = "1"
 PACKAGES = "${PN}"
 
 PV = "5.2"
-PR = "r4"
+PR = "r6"
 
 OPTIONAL_WIFIDRIVERS = "${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "enigma2-plugin-drivers-network-usb-rt3070", " \
     enigma2-plugin-drivers-network-usb-ath9k-htc \
@@ -19,6 +19,7 @@ OPTIONAL_WIFIDRIVERS = "${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "e
     enigma2-plugin-drivers-network-usb-rt2800 \
     enigma2-plugin-drivers-network-usb-rtl8187 \
     enigma2-plugin-drivers-network-usb-zd1211rw \
+    enigma2-plugin-drivers-network-usb-r8188eu \
     ", d)} \
     enigma2-plugin-drivers-network-usb-rt73 \
     enigma2-plugin-drivers-network-usb-r8712u \
@@ -26,7 +27,6 @@ OPTIONAL_WIFIDRIVERS = "${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "e
 
 DEPENDS = "enigma2 enigma2-plugins enigma2-oe-alliance-plugins network-usb-drivers-meta"
 
-DEPENDS_remove_xc7362 = "network-usb-drivers-meta"
 DEPENDS_remove_wetekplay = "network-usb-drivers-meta"
 
 RDEPENDS_${PN} = "\

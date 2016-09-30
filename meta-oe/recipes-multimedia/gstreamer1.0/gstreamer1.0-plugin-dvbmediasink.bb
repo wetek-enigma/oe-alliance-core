@@ -47,6 +47,10 @@ SRC_URI_append_xc7362 = " \
     file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
 "
 
+SRC_URI_append_xc7346 = " \
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+"
+
 SRC_URI_append_gb73625 = " \
     file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
 "
@@ -96,6 +100,14 @@ SRC_URI_append_7215s = " \
 "
 
 SRC_URI_append_7225s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_dags73625 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_formuler4-turbo = " \
     file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
 "
 

@@ -26,7 +26,9 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 
 include conf/machine/include/autoload-filesystems.inc
 
-DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 \
+    ${@base_contains('MACHINEBUILD', 'formuler4turbo', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
+    "
 
 TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el"
@@ -63,7 +65,7 @@ IMAGE_CMD_ubi_append = "\
     "
 
 
-MACHINE_FEATURES += "3dtv alsa hdmicec switchoff omb boxmodel feature1 blindscan-tbs"
+MACHINE_FEATURES += "ci 3dtv alsa hdmicec switchoff omb boxmodel feature1 blindscan-tbs skins1080"
 
 BOOTLOGO_FILENAME = "splash.bin"
 
