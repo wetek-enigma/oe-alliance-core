@@ -15,8 +15,13 @@ SRC_URI = " \
     file://amlsetfb.sh \
     file://aaa.sh \
 "
+SRC_URI_wetekplay2 = " \
+    file://amlsetfb.sh \
+    file://aaa.sh \	
+    file://asound.conf \
+"
 
-COMPATIBLE_MACHINE = "(wetekplay)"
+COMPATIBLE_MACHINE = "(wetekplay|wetekplay2)"
 
 do_install() {
     install -d ${D}${sysconfdir}/init.d
@@ -24,5 +29,8 @@ do_install() {
     install -m 0755 ${WORKDIR}/aaa.sh  ${D}${sysconfdir}/init.d/aaa.sh
     update-rc.d -r ${D} amlsetfb.sh start 03 S .
     update-rc.d -r ${D} aaa.sh start 0 S .
+}
+do_install_append_wetekplay2 () {
+	 install -m 0755 ${WORKDIR}/asound.conf  ${D}${sysconfdir}/asound.conf.aml
 }
 
