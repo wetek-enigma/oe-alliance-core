@@ -9,13 +9,14 @@ PR = "r1"
 DEPENDS = "libamadec"
 RDEPENDS_${PN} = "libamadec"
 
+
 inherit lib_package
 
 SRC_URI_wetekplay = "file://libamcodec-75f23da.tar.gz;md5=2ff1cbc415271733e1241e8cde0b105e \
            file://libamcodec.pc \
            file://alsactl.conf \
 "
-SRC_URI_wetekplay2 = "file://libamcodec-210755d.tar.gz;md5=547b9395ecab2b6ab4d429da947f036a \
+SRC_URI_wetekplay2 = "file://libamcodec-210755d.tar.gz;md5=dd2153497a999a41cdc7f80f62e64543 \
            file://libamcodec.pc \
            file://alsactl.conf \
 "
@@ -31,7 +32,7 @@ EXTRA_OEMAKE = " \
     'LDFLAGS=-lamadec -lm -lc  -shared -Wl,--shared -Wl,-soname,libamcodec.so' \
 "
 
-do_install_wetekplay() {
+do_install() {
     install -d ${D}${libdir}/pkgconfig
     install -d ${D}${sysconfdir}/
     install -m 0644 ${WORKDIR}/alsactl.conf ${D}${sysconfdir}/
@@ -42,16 +43,4 @@ do_install_wetekplay() {
     install -m 0755  ${S}/libamcodec.so.0.0  ${D}${libdir}
     cd ${D}${libdir}
     ln -sf libamcodec.so.0.0 libamcodec.so
-}
-do_install_wetekplay2() {
-    install -d ${D}${libdir}/pkgconfig
-    install -d ${D}${sysconfdir}/
-    install -m 0644 ${WORKDIR}/alsactl.conf ${D}${sysconfdir}/
-    install -m 0644 ${WORKDIR}/libamcodec.pc ${D}${libdir}/pkgconfig/
-    install -d ${D}${includedir}/amlogic/amcodec
-    cp -pR ${S}/include/* ${D}${includedir}/amlogic/amcodec
-    install -d ${D}${libdir}
-    install -m 0755  ${S}/libamcodec.so  ${D}${libdir}
-}
-do_package_qa() {
 }

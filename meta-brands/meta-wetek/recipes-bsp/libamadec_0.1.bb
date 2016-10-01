@@ -17,7 +17,7 @@ SRC_URI_wetekplay = "file://libamcodec-75f23da.tar.gz;md5=2ff1cbc415271733e1241e
            file://audiodsp_codec_ddp_dcv.bin \
            file://libamadec.pc \
 "
-SRC_URI_wetekplay2 = "file://libamcodec-210755d.tar.gz;md5=547b9395ecab2b6ab4d429da947f036a \
+SRC_URI_wetekplay2 = "file://libamcodec-210755d.tar.gz;md5=dd2153497a999a41cdc7f80f62e64543 \
            file://libamadec.pc \
 "
 
