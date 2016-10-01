@@ -31,7 +31,7 @@ do_setlibtool_arm (){
 }
 
 do_setlibtool_aarch64 (){
-    sed -i "s#LIBTOOL=libtool#LIBTOOL=\${STAGING_BINDIR_CROSS}\/////\${TARGET_SYS}-libtool#" ${S}/Makefile.am
+    perl -pi -e "s#LIBTOOL=libtool#LIBTOOL=\${STAGING_BINDIR_CROSS}\/aarch64-oe-linux-libtool#" ${S}/Makefile.am
 }
 
 INITSCRIPT_PARAMS_vuplus = "stop 10 0 6 ."
