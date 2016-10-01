@@ -16,7 +16,7 @@ LINUX_VERSION_EXTENSION ?= "amlogic"
 COMPATIBLE_MACHINE = "(wetekplay2)"
 
 
-SRCREV = "2860cb4b16b253a995e46dc7993ccec029bc1618"
+SRCREV = "ad97d14c3543d93c028de6cce2b94c0d6ba2bbe0"
 
 SRC_URI = "git://github.com/wetek-enigma/linux-amlogic.git;protocol=git;branch=amlogic-3.14.y \
 		   file://defconfig \
@@ -44,7 +44,7 @@ do_compile_prepend () {
 do_compile_append() {
 	install -d ${DEPLOY_DIR_IMAGE}
 	install -m 0644 ${B}/arch/arm64/boot/dts/amlogic/${KERNEL_DEVICETREE} ${DEPLOY_DIR_IMAGE}/meson64_wetekplay2.dtb
-	install -m 0644 ${S}/boot.ini ${DEPLOY_DIR_IMAGE}/boot.ini
+	install -m 0644 ${WORKDIR}/boot.ini ${DEPLOY_DIR_IMAGE}/boot.ini
 }
 
 do_rm_work() {
