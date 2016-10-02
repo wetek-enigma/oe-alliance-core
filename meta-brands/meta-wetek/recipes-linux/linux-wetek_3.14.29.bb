@@ -21,6 +21,7 @@ SRCREV = "37bc2f388737ae7ec08b66f5fd1cbbbd98fe1db4"
 SRC_URI = "git://github.com/wetek-enigma/linux-amlogic.git;protocol=git;branch=amlogic-3.14.y \
 		   file://defconfig \
 		   file://boot.ini \
+		   file://uInitrd \
 		   "
 
 
@@ -45,6 +46,7 @@ do_compile_append() {
 	install -d ${DEPLOY_DIR_IMAGE}
 	install -m 0644 ${B}/arch/arm64/boot/dts/amlogic/${KERNEL_DEVICETREE} ${DEPLOY_DIR_IMAGE}/meson64_wetekplay2.dtb
 	install -m 0644 ${WORKDIR}/boot.ini ${DEPLOY_DIR_IMAGE}/boot.ini
+	install -m 0644 ${WORKDIR}/uInitrd ${DEPLOY_DIR_IMAGE}/uInitrd
 }
 
 do_rm_work() {
