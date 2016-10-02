@@ -16,7 +16,7 @@ LINUX_VERSION_EXTENSION ?= "amlogic"
 COMPATIBLE_MACHINE = "(wetekplay2)"
 
 
-SRCREV = "37bc2f388737ae7ec08b66f5fd1cbbbd98fe1db4"
+SRCREV = "7eb3c3b9d2eebabb4a57b1daa796f9a033cf5864"
 
 SRC_URI = "git://github.com/wetek-enigma/linux-amlogic.git;protocol=git;branch=amlogic-3.14.y \
 		   file://defconfig \
