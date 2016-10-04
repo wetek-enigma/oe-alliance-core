@@ -82,7 +82,7 @@ echo 0 > /sys/class/graphics/fb0/blank
 echo 1 > /sys/class/graphics/fb1/blank
 
 #pbsplash
-/usr/bin/remotecfg /etc/amremote/wetek.conf
+/usr/bin/remotecfg /etc/amremote/wetek_play2.conf
 
 echo rm default > /sys/class/vfm/map
 echo add default decoder ppmgr deinterlace amvideo > /sys/class/vfm/map
