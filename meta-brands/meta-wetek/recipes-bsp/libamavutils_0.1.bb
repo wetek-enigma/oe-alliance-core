@@ -9,7 +9,7 @@ PR = "r0"
 inherit lib_package
 
 SRC_URI_wetekplay = "file://libamcodec-75f23da.tar.gz;md5=2ff1cbc415271733e1241e8cde0b105e"
-SRC_URI_wetekplay2 = "file://libamcodec-210755d.tar.gz;md5=dd2153497a999a41cdc7f80f62e64543"
+SRC_URI_wetekplay2 = "file://libamcodec-210755d.tar.gz;md5=c1afb1071521e3dafa9637b3b69bd635"
 
 S_wetekplay = "${WORKDIR}/libamcodec-75f23da/amavutils"
 S_wetekplay2 = "${WORKDIR}/libamcodec-210755d/amavutils"

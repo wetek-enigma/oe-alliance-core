@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 PR = "r1"
 
 DEPENDS = "libamavutils alsa-lib rtmpdump"
+RDEPENDS_${PN} = "ffmpeg"
 
 ### for DTS encoder: don't check for stripped & text relocations
 INSANE_SKIP_${PN} = "already-stripped textrel"
@@ -17,7 +18,7 @@ SRC_URI_wetekplay = "file://libamcodec-75f23da.tar.gz;md5=2ff1cbc415271733e1241e
            file://audiodsp_codec_ddp_dcv.bin \
            file://libamadec.pc \
 "
-SRC_URI_wetekplay2 = "file://libamcodec-210755d.tar.gz;md5=dd2153497a999a41cdc7f80f62e64543 \
+SRC_URI_wetekplay2 = "file://libamcodec-210755d.tar.gz;md5=c1afb1071521e3dafa9637b3b69bd635 \
            file://libamadec.pc \
 "
 
@@ -35,7 +36,7 @@ EXTRA_OEMAKE = "\
 "
 
 ### NOTE: we are installing closed src DTS encoder as well for transcoding
-do_install_wetekplay() {
+do_install() {
     install -d ${D}${libdir}/pkgconfig
     install -d ${D}${includedir}/amlogic/amadec
     install -d ${D}${base_libdir}/firmware
@@ -43,18 +44,11 @@ do_install_wetekplay() {
     install -m 0755 ${S}/include/* ${D}${includedir}/amlogic/amadec
     install -m 0755 ${S}/libamadec.so ${D}/${libdir}
     install -m 0755 ${S}/acodec_lib/*.so  ${D}/${libdir}
-    install -m 0644 ${S}/${FWL}/*.bin  ${D}${base_libdir}/firmware/
-    install -m 0644 ${WORKDIR}/audiodsp_codec_ddp_dcv.bin ${D}${base_libdir}/firmware/
+    if [ "${MACHINE}" = "wetekplay" ]; then
+    	install -m 0644 ${S}/${FWL}/*.bin  ${D}${base_libdir}/firmware/
+    	install -m 0644 ${WORKDIR}/audiodsp_codec_ddp_dcv.bin ${D}${base_libdir}/firmware/
+    fi
     install -m 0644 ${WORKDIR}/libamadec.pc ${D}${libdir}/pkgconfig/	
-}
-do_install_wetekplay2 () {
-    install -d ${D}${libdir}/pkgconfig
-    install -d ${D}${includedir}/amlogic/amadec
-    install -d ${D}${base_libdir}/firmware
-    install -d ${D}${libdir}
-    install -m 0755 ${S}/include/* ${D}${includedir}/amlogic/amadec
-    install -m 0755 ${S}/libamadec.so ${D}/${libdir}
-    install -m 0644 ${WORKDIR}/libamadec.pc ${D}${libdir}/pkgconfig/
 }
 
 FILES_${PN} = "${libdir}/* ${base_libdir}/firmware"
