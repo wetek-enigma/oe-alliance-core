@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 require conf/license/license-close.inc
 
 KV = "3.14.29"
-SRCDATE = "20160930"
+SRCDATE = "20161023"
 
 PV = "${KV}+${SRCDATE}"
 PR = "r1"
