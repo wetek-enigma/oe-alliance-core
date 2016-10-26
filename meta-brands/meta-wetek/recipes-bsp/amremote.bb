@@ -36,7 +36,11 @@ do_install() {
     install -d ${D}${bindir}
     install -d ${D}${sysconfdir}/amremote
     install -m 0755 ${S}/remotecfg ${D}${bindir}/
-    install -m 0644 ${WORKDIR}/wetek.conf ${D}${sysconfdir}/amremote/
+    if [ "${MACHINE}" = "wetekplay2" ]; then
+	install -m 0644 ${WORKDIR}/wetek_play2.conf ${D}${sysconfdir}/amremote/wetek.conf
+    else
+    	install -m 0644 ${WORKDIR}/wetek.conf ${D}${sysconfdir}/amremote/
+    fi
     install -m 0644 ${WORKDIR}/wetek1.conf ${D}${sysconfdir}/amremote/
     install -m 0644 ${WORKDIR}/wetek2.conf ${D}${sysconfdir}/amremote/
     install -m 0644 ${WORKDIR}/wetek3.conf ${D}${sysconfdir}/amremote/
