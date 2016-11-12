@@ -48,7 +48,9 @@ SRC_URI += "http://source.mynonpublic.com/ini/bcm7413-linux-${KV}-${SRCDATE}.tar
     file://nfs-max-rwsize-8k.patch \
     file://rtl8712-fix-warnings.patch \
     file://rtl8187se-fix-warnings.patch \
+    file://timeconst_perl5.patch \
     "
+
 
 S = "${WORKDIR}/linux-${PV}"
 B = "${WORKDIR}/build"
