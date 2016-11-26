@@ -26,7 +26,9 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 
 include conf/machine/include/autoload-filesystems.inc
 
-DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 \
+    ${@base_contains('MACHINEBUILD', 'formuler4turbo', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
+    "
 
 TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el"
@@ -48,6 +50,7 @@ IMAGE_CMD_ubi_prepend = " \
 
 IMAGE_CMD_ubi_append = "\
     mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
+    ${@base_contains("MACHINE_FEATURES", "bootsplash", "cp ${DEPLOY_DIR_IMAGE}/${BOOTLOGO_FILENAME} ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${BOOTLOGO_FILENAME};" , "", d)} \
     mv ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${ROOTFS_FILE}; \
     gzip -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${KERNEL_FILE}; \
     echo ${IMAGE_VER_STRING} > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
@@ -63,7 +66,7 @@ IMAGE_CMD_ubi_append = "\
     "
 
 
-MACHINE_FEATURES += "3dtv alsa hdmicec switchoff omb boxmodel feature1 blindscan-tbs"
+MACHINE_FEATURES += "ci 3dtv alsa hdmicec switchoff omb boxmodel feature1 blindscan-tbs skins1080 linuxwifi"
 
 BOOTLOGO_FILENAME = "splash.bin"
 

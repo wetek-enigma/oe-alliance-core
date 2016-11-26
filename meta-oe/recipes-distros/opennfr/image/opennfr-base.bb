@@ -20,9 +20,15 @@ RDEPENDS_${PN} = "\
     opennfr-missing \ 
     openssh-sftp-server \
     ntfs-3g \
+    packagegroup-base-smbfs-client \
+    packagegroup-base-smbfs-server \
+    packagegroup-base-smbfs-utils \
     hddtemp \
     busybox-cron \
     python-imaging \
+    python-requests \
+    python-cfscrape \
+    python-js2py \
     ofgwrite \
     python-gdata \
     libshowiframe \

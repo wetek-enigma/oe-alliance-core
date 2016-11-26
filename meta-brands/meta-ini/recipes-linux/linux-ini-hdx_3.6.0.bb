@@ -20,7 +20,7 @@ PKG_kernel-image = "kernel-image"
 RPROVIDES_kernel-base = "kernel-${KERNEL_VERSION}"
 RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION}"
 
-SRC_URI += "http://code-ini.com/software/kernel/bcm7413-linux-${KV}-${SRCDATE}.tar.gz \
+SRC_URI += "http://source.mynonpublic.com/ini/bcm7413-linux-${KV}-${SRCDATE}.tar.gz \
     file://defconfig \
     file://mtd_nor_nand.patch \
     file://0001-kernel-add-support-for-gcc-5.patch \
@@ -48,7 +48,9 @@ SRC_URI += "http://code-ini.com/software/kernel/bcm7413-linux-${KV}-${SRCDATE}.t
     file://nfs-max-rwsize-8k.patch \
     file://rtl8712-fix-warnings.patch \
     file://rtl8187se-fix-warnings.patch \
+    file://timeconst_perl5.patch \
     "
+
 
 S = "${WORKDIR}/linux-${PV}"
 B = "${WORKDIR}/build"

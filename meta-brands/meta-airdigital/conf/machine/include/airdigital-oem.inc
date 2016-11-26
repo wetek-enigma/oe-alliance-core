@@ -12,7 +12,9 @@ ${@base_contains('MACHINEBUILD', 'zgemmahs', 'H.S' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah2s', 'H.2S' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah2h', 'H.2H' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmaslc', 'Star LC' , '', d)}\
+${@base_contains('MACHINEBUILD', 'zgemmah4', 'H4' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah5', 'H5' , '', d)}\
+${@base_contains('MACHINEBUILD', 'zgemmah52s', 'H5.2S' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmai55', 'I55' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'novacombo', 'NOVA COMBO' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'novaip', 'NOVA IP' , '', d)}\
@@ -28,7 +30,9 @@ ${@base_contains('MACHINEBUILD', 'zgemmahs', 'Zgemma' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah2s', 'Zgemma' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah2h', 'Zgemma' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmaslc', 'Zgemma' , '', d)}\
+${@base_contains('MACHINEBUILD', 'zgemmah4', 'Zgemma' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah5', 'Zgemma' , '', d)}\
+${@base_contains('MACHINEBUILD', 'zgemmah52s', 'Zgemma' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmai55', 'Zgemma' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'novacombo', 'EVO' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'novaip', 'EVO' , '', d)}\
@@ -44,7 +48,9 @@ ${@base_contains('MACHINEBUILD', 'zgemmahs', 'zgemma/h3' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah2s', 'zgemma/h3' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah2h', 'zgemma/h3' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmaslc', 'zgemma/lc' , '', d)}\
+${@base_contains('MACHINEBUILD', 'zgemmah4', 'zgemma/h4' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah5', 'zgemma/h5' , '', d)}\
+${@base_contains('MACHINEBUILD', 'zgemmah52s', 'zgemma/h5' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmai55', 'zgemma/i55' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'novacombo', 'novacombo' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'novaip', 'novaip' , '', d)}\
@@ -60,7 +66,9 @@ ${@base_contains('MACHINEBUILD', 'zgemmahs', 'h3' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah2s', 'h3' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah2h', 'h3' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmaslc', 'lc' , '', d)}\
+${@base_contains('MACHINEBUILD', 'zgemmah4', 'h4' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmah5', 'h5' , '', d)}\
+${@base_contains('MACHINEBUILD', 'zgemmah52s', 'h5' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'zgemmai55', 'i55' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'novacombo', 'novacombo' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'novaip', 'novaip' , '', d)}\
@@ -90,7 +98,7 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 include conf/machine/include/autoload-filesystems.inc
 
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 \
-    ${@base_contains('MACHINEBUILD', 'h5', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
+    ${@base_contains('MACHINE', 'h5', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
     "
 
 TARGET_ARCH = "mipsel"

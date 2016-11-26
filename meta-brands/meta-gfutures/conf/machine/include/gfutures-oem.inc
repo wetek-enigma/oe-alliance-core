@@ -9,11 +9,13 @@ ${@base_contains('MACHINEBUILD', 'mutant1265', 'HD1265' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1500', 'HD1500' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1100', 'HD1100' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant500c', 'HD500C' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant530c', 'HD530C' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1200', 'HD1200' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'vizyonvita', 'Vita' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant11', 'HD11' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant51', 'HD51' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'ax51', 'HD51' , '', d)}\
+${@base_contains('MACHINEBUILD', 'bre2ze4k', 'BRE2ZE 4K' , '', d)}\
 "
 
 MACHINE_BRAND = "\
@@ -21,11 +23,13 @@ ${@base_contains('MACHINEBUILD', 'mutant1100', 'Mut@nt' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1265', 'Mut@nt' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1500', 'Mut@nt' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant500c', 'Mut@nt' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant530c', 'Mut@nt' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1200', 'Mut@nt' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'vizyonvita', 'Vizyon' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant11', 'Mut@nt' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant51', 'Mut@nt' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'ax51', 'AX 4K' , '', d)}\
+${@base_contains('MACHINEBUILD', 'bre2ze4k', 'WWIO' , '', d)}\
 "
 
 IMAGEDIR ?= "\
@@ -33,15 +37,31 @@ ${@base_contains('MACHINEBUILD', 'mutant1100', 'hd1100' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1265', 'hd1265' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1500', 'hd1500' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant500c', 'hd500c' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant530c', 'hd530c' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant1200', 'hd1200' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'vizyonvita', 'hd1100' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant11', 'hd11' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'mutant51', 'hd51' , '', d)}\
 ${@base_contains('MACHINEBUILD', 'ax51', 'hd51' , '', d)}\
+${@base_contains('MACHINEBUILD', 'bre2ze4k', 'bre2ze4k' , '', d)}\
+"
+
+MACHINE_DRIVER ?= "\
+${@base_contains('MACHINEBUILD', 'mutant1100', 'hd1100' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant1265', 'hd1265' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant1500', 'hd1500' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant500c', 'hd500c' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant530c', 'hd530c' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant1200', 'hd1200' , '', d)}\
+${@base_contains('MACHINEBUILD', 'vizyonvita', 'hd1100' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant11', 'hd11' , '', d)}\
+${@base_contains('MACHINEBUILD', 'mutant51', 'hd51' , '', d)}\
+${@base_contains('MACHINEBUILD', 'ax51', 'hd51' , '', d)}\
+${@base_contains('MACHINEBUILD', 'bre2ze4k', 'bre2ze4k' , '', d)}\
 "
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
-    gfutures-dvb-modules-${MACHINE} \
+    gfutures-dvb-modules-${MACHINE_DRIVER} \
     kernel-vmlinux \
     "
 
@@ -63,8 +83,7 @@ DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 \
     ${@base_contains('MACHINEBUILD', 'mutant1265', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
     ${@base_contains('MACHINEBUILD', 'mutant1500', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
     ${@base_contains('MACHINEBUILD', 'mutant11', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
-    ${@base_contains('MACHINEBUILD', 'mutant51', '--with-h265 --with-vb6 --with-vb8 --with-vb9 --with-spark' , '', d)} \
-    ${@base_contains('MACHINEBUILD', 'ax51', '--with-h265 --with-vb6 --with-vb8 --with-vb9 --with-spark' , '', d)} \
+    ${@base_contains('MACHINE', 'hd51', '--with-h265 --with-vb6 --with-vb8 --with-vb9 --with-spark' , '', d)} \
 "
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-gfutures"

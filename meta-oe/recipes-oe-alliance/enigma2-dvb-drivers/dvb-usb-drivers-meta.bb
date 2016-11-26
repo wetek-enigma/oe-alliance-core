@@ -6,6 +6,9 @@ require conf/license/license-gplv2.inc
 ALLOW_EMPTY_${PN} = "1"
 
 DEPENDS = "\
+    enigma2-plugin-drivers-atsc-usb-hauppauge \
+    enigma2-plugin-drivers-atsc-950q-usb-hauppauge \
+    enigma2-plugin-drivers-atsc-955q-usb-hauppauge \
     enigma2-plugin-drivers-dvb-usb-dib0700 \
     enigma2-plugin-drivers-dvb-usb-af9015 \
     enigma2-plugin-drivers-dvb-usb-siano \
@@ -29,7 +32,9 @@ DEPENDS = "\
     ${@base_contains("MACHINE", "vuuno", "enigma2-plugin-drivers-dvb-usb-turbo", "", d)} \
     ${@base_contains("MACHINE", "vuzero", "enigma2-plugin-drivers-dvb-usb-turbo", "", d)} \
     ${@base_contains("MACHINE", "vusolo4k", "enigma2-plugin-drivers-dvb-usb-turbo", "", d)} \
+    ${@base_contains("MACHINE", "vuuno4k", "enigma2-plugin-drivers-dvb-usb-turbo", "", d)} \
+    ${@base_contains("MACHINE", "vuultimo4k", "enigma2-plugin-drivers-dvb-usb-turbo", "", d)} \
     "
 
 
-PR = "r13"
+PR = "r15"
