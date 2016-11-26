@@ -174,6 +174,9 @@ do_install_append() {
         ln -sf /usr/share/enigma2/et7100.png ${D}/usr/lib/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/et7100.png
         install -m 0644 ${S}/BoxBranding/boxes/et7500.png ${D}/usr/share/enigma2/et7500.png
         ln -sf /usr/share/enigma2/et7500.png ${D}/usr/lib/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/et7500.png 
+    elif [ ${MACHINEBUILD} = "wetekplay2" ]; then
+	install -m 0644 ${S}/BoxBranding/boxes/wetekplay.png ${D}/usr/share/enigma2/${MACHINEBUILD}.png
+        ln -sf /usr/share/enigma2/${MACHINEBUILD}.png ${D}/usr/lib/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/${MACHINEBUILD}.png
     elif [ ${MACHINEBUILD} = "twinboxlcd" ]; then
         install -m 0644 ${S}/BoxBranding/boxes/twinboxlcdci.png ${D}/usr/share/enigma2/twinboxlcdci.png
         ln -sf /usr/share/enigma2/twinboxlcdci.png ${D}/usr/lib/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/twinboxlcdci.png
